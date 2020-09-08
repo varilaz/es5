@@ -1,12 +1,20 @@
 "use strict"
 
 searchButton.addEventListener('click', searchWeather);
-
+searchCity,addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     console.log(event.target)
+     document.getElementById("btn").click(searchWeather);
+    }
+    //document.getElementById("btn").click(searchWeather);
+  })
 
 function searchWeather(event){
     loadingText.style.display = "block";
     weatherBox.style.display = "none";
     var cityName = searchCity.value;
+    console.log(cityName);
     if(cityName.trim().length == 0){
         return alert('Please enter a City Name');
     }
